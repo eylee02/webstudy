@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+    /* box 크기와 배경 이미지 크기를 동일하게 맞춤 */
+    .box1 {
+      box-sizing: border-box;
+      width: 192px;
+      height: 128px;
+      background-image: url(../../assets/images/animal10.jpg);
+      background-size: 192px 128px;
+    }
+  </style>
+
+  <div class="box1"></div>
+
+  <hr>
+
+  <style>
+    .box2 {
+      box-sizing: border-box;
+      width: 500px;
+      height: 380px;
+      border: 1px solid gray;
+      background-image: url(../../assets/images/attach1.png);
+      background-repeat: no-repeat;  /* 반복없음 */
+      background-size: auto;         /* 이미지 크기를 그대로 사용 */
+      background-position: center;   /* top/bottom(세로 정렬), left/right/center(가로 정렬) */
+    }
+
+  </style>
+
+  <div class="box2"></div>
+
+  <hr>
+
+  <style>
+    /* box보다 큰 이미지 처리 */
+    .box3 {
+      box-sizing: border-box;
+      width: 300px;
+      height: 300px;
+      border: 1px solid gray;
+      background-image: url(../../assets/images/light2.png);
+      background-repeat: no-repeat;
+      background-size: contain;   /* contain : 이미지를 늘리거나 자르지 않고 최대한 크게 조정해서 표현 */
+                                  /* cover   : 너비/높이 중 작은 부분을 최대한 여백없이 표시하고 box 밖으로 나간 부분은 자름 */
+      background-position: center;
+    }
+
+  </style>
+  <div class="box3"></div>
+
+  <hr>
+
+  <style>
+
+    .box4 {
+      box-sizing: border-box;
+      width: 115px;
+      height: 115px;
+      background-image: url(../../assets/images/weather.png);
+      background-position: 0 -145px; /* 가로 세로 순으로 이동, -145px: 배경이 왼쪽/아래쪽으로 145px 이동 */
+    }
+
+  </style>
+
+  <div class="box4"></div>
+
+  <hr>
+
+  <style>
+    .box5 {
+      box-sizing: border-box;
+      width: 110px;
+      height: 220px;
+      background-image: url(../../assets/images/logo.png);
+      background-position: -1170px -175px;
+    }
+
+  </style>
+  <div class="box5"></div>
+
+</body>
+</html>
