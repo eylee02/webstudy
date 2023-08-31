@@ -220,16 +220,26 @@
       if(isNaN(a) || isNaN(b) || isNaN(c)){
         return;
       }
+      /*
       let median;
       if(a >= b){
         if(b >= c)  median = b;      // a b c
         else if(a <= c) median = a;  // c a b
         else median = c;             // a c b
       } 
-      else if(a > c) median = a;   // b a c 
-      else if(b > c) median = c;   // b c a
-      else median = b;             // c b a
-      return median; 
+      else if(a > c) median = a;     // b a c 
+      else if(b > c) median = c;     // b c a
+      else median = b;               // c b a
+      */
+      let median;
+      if((b >= a && a >= c) || (c >= a && a >= b)){  // b a c, c a b
+        median = a;
+      } else if((a >= b && b >= c) || (c >= b && b >= a)) {  // a b c, c b a
+        median = b;
+      } else {
+        median = c;
+      }
+      return median;
     }
     console.log(myMax(1, 2, 3));
     console.log(myMax('a', 'hello', true));  // undefined
@@ -337,7 +347,7 @@
         timer1.innerHTML = '<h1>발사</h1>';
         clearInterval(timerId);
       } else {
-        timer1.innerHTML = '<h1>' + countDown-- + '</hr>';
+        timer1.innerHTML = '<h1>' + countDown-- + '</h1>';
       }
     }, 1000);
 
@@ -347,7 +357,7 @@
    <script>
     // 문제. n초 타이머 동작시키기(5 4 3 2 1 발사) : setTimeout + 재귀 호출
     var timer2 = document.getElementById('timer2');
-    
+
     function myTimer(countDown){
       setTimeout(function(){
         if(countDown === 0) {
@@ -359,10 +369,6 @@
       }, 1000);
     }
     myTimer(5);
-
-
-
-
 
    </script>
 

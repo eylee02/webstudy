@@ -75,6 +75,51 @@
 
   </script>
 
+  <!-- 2023.08.31 -->
+  <script>
+    
+    /* String 내장 객체 */
+
+    var str = 'JavaScript';
+
+    // 1. 문자열의 길이
+    console.log(str.length);
+
+    // 2. 특정 문자(지정된 인덱스에 위치하는 문자)
+    console.log(str.charAt(0));   // 첫번째 문자
+    console.log(str.charAt(str.length - 1));  // 마지막 문자
+
+    // 3. 특정 문자열
+    console.log(str.substring(0, 4));  // 'Java' : 인덱스 0 이상 인덱스 4 미만
+    console.log(str.substring(4));     // 'Script': 인덱스 4 이상에서 끝까지
+    console.log(str.substr(0, 4));     // 'Java' : 인덱스 0 부터 4글자 추출
+    console.log(str.substr(4));        // 'Script': 인덱스 4 부터 끝까지 추출
+
+    // 4. 문자열 연결
+    console.log(str.concat(', ', 'Hello World'));  // 'JavaScript, Hello World'
+
+    // 5. 특정 패턴으로 시작/특정 패턴으로 끝나는지 검사
+    console.log(str.startsWith('Java'));   // 'Java'로 시작하면 true
+    console.log(str.endsWith('Script'));   // 'Script'로 끝나면 true
+
+    // 6. 특정 문자열의 위치(인덱스) 찾기
+    console.log(str.indexOf('a'));      // 'JavaScript'에서 발견된 1번째 a의 인덱스를 반환 - (1)
+    console.log(str.lastIndexOf('a'));  // 'JavaScript'에서 발견된 마지막 a의 인덱스를 반환 - (3)
+
+    // 7. 특정 문자열을 주어진 길이만큼 채우기 (화면출력시 마스킹)
+    console.log(str.substring(0, 4).padEnd(10, '*'));  // 'Java******' padEnd - 뒤에문자채우기
+    console.log(str.substring(4).padStart(10, '*'));   // '****Script' padStart - 앞에문자채우기
+
+    // 8. 주어진 횟수만큼 반복하기
+    console.log(str.repeat(3));
+
+    // 9. 찾아 바꾸기
+    var str = '192.168.0.101';
+    console.log(str.replace('.', '_'));     // '192.168.0.101' -> '192_168.0.101'
+    console.log(str.replaceAll('.', '_'));  // '192.168.0.101' -> '192_168_0_101'
+
+  </script>
+
 
   <!-- 문제1. 시계 만들기 -->
   <style>
@@ -109,7 +154,6 @@
     }, 1000);
   </script>
 
-
   <!-- 문제2. 디데이 -->
   <!-- 1일 이상 남은 경우 : D-DAY 70일 15:10 -->
   <!-- 1일 미만 남은 경우 : D-DAY 15:10 -->
@@ -121,12 +165,13 @@
 
       var now = new Date();               // 2023-08-30
       var dday = new Date(2023, 10, 16);  // 2023-11-16
-      
-      var timestamp = dday.getTime() - now.getTime();  // dday - now로 계산해도 타임스탬프 결과가 나옴
-      var totalSecond = parseInt(timestamp / 1000);  // 밀리초를 초 단위로 변환함(parseInt : 소수점 제거됨)
-      var restDay = parseInt(totalSecond / 60 / 60 / 24);
-      var restHour = parseInt(totalSecond / 60 / 60) % 24;
-      var restMinute = parseInt(totalSecond / 60) % 60;
+
+      // var timestamp = (dday.getTime() - now.getTime()) / 60 / 60 / 24
+      var timestamp = dday.getTime() - now.getTime();      // dday - now로 계산해도 타임스탬프 결과가 나옴
+      var totalSecond = parseInt(timestamp / 1000);        // 밀리초를 초 단위로 변환함(parseInt : 소수점 제거됨)
+      var restDay = parseInt(totalSecond / 60 / 60 / 24);  // 초를 시간(60초 / 60분 / 24시간)으로 나눠서 day 구하기
+      var restHour = parseInt(totalSecond / 60 / 60) % 24; // 초를 시간(60초 / 60분)%24시간 나머지로 시 구하기
+      var restMinute = parseInt(totalSecond / 60) % 60;    // 초를 시간(60초)%60분 나머지로 분 구하기
   
       var str = 'D-DAY&nbsp;';
       if(totalSecond > 0){
@@ -143,7 +188,6 @@
     }, 1000);
 
   </script>
-
 
 </body>
 </html>
