@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  
+  <div id="box1"></div>
+  <script>
+
+    // 배열 생성 및 초기화
+    var fourSeason = ['spring', 'summer', 'autumn', 'winter'];
+
+    // 배열 요소 순회 each() 메소드
+    $.each(fourSeason, function(i){  // i : 배열 인덱스
+      console.log(i);
+    })
+    $.each(fourSeason, function(i, elem){  // i : 배열 인덱스, elem : 배열 요소
+      console.log(i, elem);
+    })
+
+    /*           <ol>
+      1. spring  <li>
+      2. summer  <li>
+      3. autumn  <li>
+      4. winter  <li>
+    */
+
+    var ol = $('<ol>');
+    $.each(fourSeason, function(i, elem){
+      ol.append($('<li>').text(elem));
+    })
+
+    ol.appendTo($('#box1'));
+
+  </script>
+
+  <hr>
+
+  <div id="box2"></div>
+  <script>
+
+    // 배열 생성 및 초기화
+    var people = [
+      {
+        'name' : 'alice',
+        'age'  : 30,
+        'mobile' : '010-0000-0000'
+      },
+      {
+        'name' : 'james',
+        'age'  : 40,
+        'mobile' : '010-1111-1111'
+      }
+    ];
+    // <table> 태그를 jQuery 객체로 만들기 
+    var table = $('<table>').attr('border', 1);
+
+    // <thead> 태그는 문자열로 전달해서 저장
+    table.append($('<thead><tr><td>이름</td><td>나이</td><td>연락처</td></tr></thead>'));
+    
+
+    $.each(people, function(i, value){
+      table.append($('<tr>').append($('<td>').text(value)));
+
+    })
+
+    table.appendTo($('#box2'));
+
+
+
+
+  </script>
+
+  <div id="box3"></div>
+  <script>
+
+    // 배열 생성 및 초기화
+    var site = [
+      {
+        'host' : '네이버',
+        'url'  : 'http://www.naver.com/',
+        'target' : '_blank'
+      },
+      {
+        'host' : '구글',
+        'url'  : 'http://www.google.com/',
+        'target' : '_self'
+      }
+    ]
+
+    /*
+      <ul>
+        <li><a href="http://www.naver.com/" target="_blank">네이버</a></li>
+        <li><a href="http://www.google.com/" target="_self">구글</a></li>
+      </ul>
+    */
+
+    var ul = $('<ul>');
+    $.each(site, function(i, value){
+      ul.append($('li').append('<a href='))
+    })
+
+
+
+  </script>
+
+  <hr>
+
+  <div id="box4">
+    <ul>
+      <li class="movies">터미네이터</li>
+      <li class="movies">아바타</li>
+      <li class="movies">에일리언</li>
+      <li class="movies">스타워즈</li>
+      <li class="movies">로보캅</li>
+    </ul>
+  </div>
+  <script>
+
+    // class="movies"인 요소를 배열로 만들기
+
+
+
+
+
+  </script>
+
+  <div id="box5">
+    <select id="region">
+      <option value="02">서울</option>
+      <option value="031">경기</option>
+      <option value="032">인천</option>
+    </select>
+  </div>
+  <script>
+
+    // id가 region인 요소를 배열로 만들기
+
+    
+  </script>
+
+
+</body>
+</html>
