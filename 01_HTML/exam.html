@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- 고전 이벤트 모델 -->
+  <div>
+  <button id="btn">전송</button>
+  </div>
+  <script>
+    document.getElementById('btn').onclick = function(event){
+      alert('전송합니다');   
+    }
+  </script>
+
+  <!-- 표준 이벤트 모델 -->
+  <div>
+    <button id="btn1">전송</button>
+  </div>
+  <script>
+    document.getElementById('btn1').addEventListener('click', function(event){
+      alert('전송합니다.');
+    })
+  </script>
+
+  <!-- 인라인 이벤트 모델 -->
+  <div>
+    <button id="btn2" onclick="myFunc(this)">전송</button>
+  </div>
+  <script>
+    function myFunc(dom){
+      alert('전송합니다.');
+    }
+  </script>
+  
+</body>
+</html>

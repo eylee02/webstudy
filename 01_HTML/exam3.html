@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div>
+    <form action="https://www.google.com" id="frm">
+    <button id="to_site">이동</button>
+   </form>
+  </div>
+  <script>
+    document.getElementById('to_site').addEventListener('click', function(){
+
+    })
+  </script>
+
+  
+    <form id="frm1" action="https://search.naver.com/search.naver">
+      <input type="text" name="query" id="query">
+      <input type="button" value="네이버검색" id="btn">
+    </form>
+  
+  <script>
+    document.getElementById('frm1').onclick = function(event){
+      alert('검색어는 ' + document.getElementById('query').value + '입니다.');
+    }
+  </script>
+  
+</body>
+</html>

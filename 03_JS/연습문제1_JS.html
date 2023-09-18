@@ -213,7 +213,37 @@
   </div>
   <script>
     // 문제5. 임의의 Student 객체 3개를 생성해서 student_info에 표시하시오.
-    
+    function student(name, kor, eng, mat){
+      this.name = name;
+      this.kor = kor;
+      this.eng = eng;
+      this.mat = mat;
+      this.ave = (kor + eng + mat) / 3;
+      if(this.ave >= 90) this.grade = 'A';
+      else if(this.ave >= 80) this.grade = 'B';
+      else if(this.ave >= 70) this.grade = 'C';
+      else this.grade = 'F';
+    }
+
+    var student = [
+      new student('james', 70, 71, 73),
+      new student('alice', 80, 81, 83),
+      new student('tomas', 90, 91, 93)
+    ];
+
+    var str = '';
+    for(let i = 0; i < student.lenth; i++){
+      str += '<tr>';
+      str += '<td>' + student[i].name + '</td>';
+      str += '<td>' + student[i].kor + '</td>';
+      str += '<td>' + student[i].eng + '</td>';
+      str += '<td>' + student[i].mat + '</td>';
+      str += '<td>' + student[i].ave + '</td>';
+      str += '<td>' + student[i].grade + '</td>';
+      str += '</tr>';
+    }
+    document.getElementById('student_info').innerHTML = str;
+
   </script>
 
   <hr>
@@ -231,7 +261,12 @@
   <script>
     // 문제6. images 배열의 임의의 이미지를 배경으로 사용하시오.
     var images = ['animal1.jpg', 'animal2.jpg', 'animal3.jpg', 'animal4.jpg', 'animal5.jpg'];
-    
+    var box6 = document.getElementById('box6');
+    box6.style.backgroundImage = 'url(../../assets/images/' + images[0] + ')';
+    setInterval(function(){
+      let i = Math.floor(Math.random() * images.length);
+      box6.style.backgroundImage = 'url(../../assets/images/' + images[i] + ')';
+    }, 5000);
   </script>
 
 </body>
